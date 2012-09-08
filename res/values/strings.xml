@@ -3,6 +3,6 @@
     <string name="app_name">Tempo Tapper</string>
     <string name="button_tap">Tap</string>
     <string name="button_reset">Reset</string>
-    <string name="bpm_suffix"> BPM</string>
+    <string name="bpm_suffix">\u0020BPM</string>
     <string name="bpm_default">0 BPM</string>
 </resources>
