@@ -5,7 +5,7 @@
               android:layout_height="fill_parent"
         >
     <TextView
-            android:id="@+id/bpm"
+            android:id="@+id/text_bpm"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -13,10 +13,10 @@
             android:text="@string/bpm_default"
             />
     <Button
+            android:id="@+id/button_tap"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/button_tap"
-            android:onClick="tap"
             />
     <Button
             android:layout_width="fill_parent"
