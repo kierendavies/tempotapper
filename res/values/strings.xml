@@ -5,4 +5,10 @@
     <string name="button_reset">Reset</string>
     <string name="bpm_suffix">\u0020BPM</string>
     <string name="bpm_default">0 BPM</string>
+    <string name="menu_about">About</string>
+    <string name="about">
+        Tempo Tapper\n
+        by Kieren Davies (2012)\n\n
+        Source code available at <a href="https://github.com/kierendavies/tempotapper">https://github.com/kierendavies/tempotapper</a>
+    </string>
 </resources>

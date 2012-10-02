@@ -1,10 +1,10 @@
 package za.co.kierendavies.tempotapper;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.view.MotionEvent;
-import android.view.View;
+import android.view.*;
 import android.widget.TextView;
 
 public class TempoTapper extends Activity {
@@ -39,6 +39,11 @@ public class TempoTapper extends Activity {
         });
     }
 
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.options, menu);
+        return true;
+    }
+
     public void onBackPressed() {
         if (taps == 0) {
             super.onBackPressed();
@@ -69,5 +74,13 @@ public class TempoTapper extends Activity {
 
     public void reset(View view) {
         reset();
+    }
+
+    public void about(MenuItem menuItem) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.menu_about);
+        builder.setMessage(R.string.about);
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 }
