@@ -39,6 +39,14 @@ public class TempoTapper extends Activity {
         });
     }
 
+    public void onBackPressed() {
+        if (taps == 0) {
+            super.onBackPressed();
+        } else {
+            reset();
+        }
+    }
+
     public void tap() {
         double bpm = 0;
         if (taps == 0) {
@@ -54,8 +62,12 @@ public class TempoTapper extends Activity {
         tap();
     }
 
-    public void reset(View view) {
+    public void reset() {
         taps = 0;
         bpmText.setText(R.string.bpm_default);
+    }
+
+    public void reset(View view) {
+        reset();
     }
 }
