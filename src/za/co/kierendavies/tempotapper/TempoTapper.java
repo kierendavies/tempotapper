@@ -4,7 +4,10 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.view.*;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.TextView;
 
 public class TempoTapper extends Activity {
@@ -12,6 +15,7 @@ public class TempoTapper extends Activity {
     private String bpmSuffix;
     private int taps = 0;
     private long startTime;
+    private long lastTime;
     private TextView bpmText;
 
     @Override
@@ -53,12 +57,17 @@ public class TempoTapper extends Activity {
     }
 
     public void tap() {
-        double bpm = 0;
+        long thisTime = SystemClock.uptimeMillis();
+        if (taps > 1 && thisTime - lastTime > 2 * (lastTime - startTime) / (taps - 1)) {
+            reset();
+        }
+        // after an automatic reset, keep going, treating that tap as the first one
         if (taps == 0) {
-            startTime = SystemClock.uptimeMillis();
-        } else {  // do nothing on the first tap
-            bpm = minuteMillis * taps / (SystemClock.uptimeMillis() - startTime);
+            startTime = thisTime;
+        } else {
+            double bpm = minuteMillis * taps / (thisTime - startTime);
             bpmText.setText(String.format("%.1f", bpm) + bpmSuffix);
+            lastTime = thisTime;
         }
         taps++;
     }
@@ -70,6 +79,8 @@ public class TempoTapper extends Activity {
     public void reset() {
         taps = 0;
         bpmText.setText(R.string.bpm_default);
+        startTime = 0;
+        lastTime = 0;
     }
 
     public void reset(View view) {
