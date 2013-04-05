@@ -122,7 +122,9 @@ public class TempoTapper extends Activity {
 
     public void tap() {
         long thisTime = SystemClock.uptimeMillis();
-        if (taps > 1 && thisTime - lastTime > 2 * (lastTime - startTime) / (taps - 1)) {
+        if (sharedPref.getBoolean("pref_auto_reset", true) &&
+                taps > 1 &&
+                thisTime - lastTime > 2 * (lastTime - startTime) / (taps - 1)) {
             reset();
         }
         // after an automatic reset, keep going, treating that tap as the first one

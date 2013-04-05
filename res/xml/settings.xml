@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceScreen
-        android:title="@string/about_title"
-        android:key="about"
-        android:persistent="false">
-        <Preference android:title="@string/dev_home" >
-            <intent android:action="android.intent.action.VIEW"
-                    android:data="http://www.kierendavies.co.za" />
-        </Preference>
-        <Preference android:title="@string/feedback" >
-            <intent android:action="android.intent.action.VIEW"
-                    android:data="mailto:dev@kierendavies.co.za?subject=Tempo Tapper feedback" />
-        </Preference>
-    </PreferenceScreen>
-    <!-- auto reset -->
+    <CheckBoxPreference
+        android:key="pref_auto_reset"
+        android:title="@string/pref_title_auto_reset"
+        android:summary="@string/pref_summary_auto_reset"
+        android:defaultValue="true" />
     <!-- vibration -->
         <!-- intensity? -->
         <!-- duration -->
     <!-- precision -->
     <!-- display bpm suffix -->
     <!-- disable ads -->
+    <PreferenceScreen
+        android:title="@string/pref_title_about"
+        android:key="pref_about"
+        android:persistent="false">
+        <Preference android:title="@string/pref_title_dev_home" >
+            <intent android:action="android.intent.action.VIEW"
+                    android:data="http://www.kierendavies.co.za" />
+        </Preference>
+        <Preference android:title="@string/pref_title_feedback" >
+            <intent android:action="android.intent.action.VIEW"
+                    android:data="mailto:dev@kierendavies.co.za?subject=Tempo Tapper feedback" />
+        </Preference>
+    </PreferenceScreen>
 </PreferenceScreen>

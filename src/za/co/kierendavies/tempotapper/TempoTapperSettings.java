@@ -13,7 +13,7 @@ public class TempoTapperSettings extends PreferenceActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //PreferenceManager.setDefaultValues(this, R.xml.settings, false);
+        PreferenceManager.setDefaultValues(this, R.xml.settings, false);
 
         if (Build.VERSION.SDK_INT >= 11) {
             addResource();
