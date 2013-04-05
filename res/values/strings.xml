@@ -11,4 +11,9 @@
         by Kieren Davies (2012)\n\n
         Source code available at <a href="https://github.com/kierendavies/tempotapper">https://github.com/kierendavies/tempotapper</a>
     </string>
+    <string name="rate_title">Rate Tempo Tapper</string>
+    <string name="rate_message">You\'ve been using Tempo Tapper a lot. Would you like to rate it?</string>
+    <string name="rate_yes">Yes</string>
+    <string name="rate_later">Later</string>
+    <string name="rate_no">Never</string>
 </resources>
