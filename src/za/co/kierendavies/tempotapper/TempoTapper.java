@@ -37,15 +37,18 @@ public class TempoTapper extends Activity {
         findViewById(R.id.button_tap).setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                    tap();
-                    view.setPressed(true);
-                    return true;
-                } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                    view.setPressed(false);
-                    return true;
-                } else {
-                    return false;
+                switch (motionEvent.getActionMasked()) {
+                    case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                        tap();
+                        view.setPressed(true);
+                        return true;
+                    case MotionEvent.ACTION_UP:
+                    case MotionEvent.ACTION_POINTER_UP:
+                        view.setPressed(false);
+                        return true;
+                    default:
+                        return false;
                 }
             }
         });
