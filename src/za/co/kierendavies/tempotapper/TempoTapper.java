@@ -151,11 +151,7 @@ public class TempoTapper extends Activity {
         reset();
     }
 
-    public void about(MenuItem menuItem) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.menu_about);
-        builder.setMessage(R.string.about);
-        AlertDialog alert = builder.create();
-        alert.show();
+    public void settings(MenuItem menuItem) {
+        startActivity(new Intent(this, TempoTapperSettings.class));
     }
 }
